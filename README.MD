@@ -14,7 +14,7 @@
 - expo install react-native-screens react-native-safe-area-context
 - npm install @apollo/client graphql
 - npm install react-hook-form
-- npm install styled-components
+- npm install styled-components (npm add @types/styled-components-react-native -D)
 - expo install @react-native-async-storage/async-storage
 - npm i react-native-appearance : for Darkmode (access OS appearance)
 
