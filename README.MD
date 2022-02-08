@@ -17,6 +17,7 @@
 - npm install styled-components (npm add @types/styled-components-react-native -D)
 - expo install @react-native-async-storage/async-storage
 - npm i react-native-appearance : for Darkmode (access OS appearance)
+- npm install --save apollo3-cache-persist (cache persistance)
 
 ## Stack Navigator
 

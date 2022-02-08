@@ -6,9 +6,10 @@ import Asyncstorage from "@react-native-async-storage/async-storage";
 import AppLoading from "expo-app-loading";
 import { ApolloProvider, useReactiveVar } from "@apollo/client";
 import { NavigationContainer } from "@react-navigation/native";
-import client, { isLoggedInVar, tokenVar } from "./apollo";
+import client, { isLoggedInVar, tokenVar, apolloCache } from "./apollo";
 import LoggedInNav from "./navigators/LoggedInNav";
 import LoggedOutNav from "./navigators/LoggedOutNav";
+import { AsyncStorageWrapper, persistCache } from "apollo3-cache-persist";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -36,6 +37,11 @@ export default function App() {
       isLoggedInVar(true);
       tokenVar(token);
     }
+
+    await persistCache({
+      cache: apolloCache,
+      storage: new AsyncStorageWrapper(Asyncstorage),
+    });
 
     return preloadAssets();
   };

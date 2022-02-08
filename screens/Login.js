@@ -36,7 +36,7 @@ export default function Login({ route: { params } }) {
     const {
       login: { ok, token },
     } = data;
-    console.log(data);
+    //console.log(data);
     if (ok) {
       await logUserIn(token);
     }
@@ -76,7 +76,7 @@ export default function Login({ route: { params } }) {
         ref={passwordRef}
         placeholder="Password"
         returnKeyType="done"
-        placeholderTextColor={"rgba(255,255,255, 0.6"}
+        placeholderTextColor={"rgba(255,255,255, 0.6)"}
         onSubmitEditing={handleSubmit(onValid)}
         onChangeText={(text) => setValue("password", text)}
         secureTextEntry={true}
