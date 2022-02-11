@@ -117,9 +117,17 @@ function Photo({ id, user, caption, file, isLiked, likeNum }) {
     update: updateToggleLike,
   });
 
+  /* goToProfile (nav) */
+  const goToProfile = () => {
+    navigation.navigate("Profile", {
+      userName: user.userName,
+      id: user.id,
+    });
+  };
+
   return (
     <Container>
-      <Header onPress={() => navigation.navigate("Profile")}>
+      <Header onPress={goToProfile}>
         <UserAvatar resizeMode="cover" source={{ uri: user.avatar }} />
         <Username>{user.userName}</Username>
       </Header>
@@ -143,7 +151,9 @@ function Photo({ id, user, caption, file, isLiked, likeNum }) {
             <Ionicons name="chatbubble-outline" color="white" size={22} />
           </Action>
         </Actions>
-        <TouchableOpacity onPress={() => navigation.navigate("Likes")}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("Likes", { photoId: id })}
+        >
           <Likes>{likeNum === 1 ? "1 like" : `${likeNum} likes`}</Likes>
         </TouchableOpacity>
 
